@@ -1,0 +1,2 @@
+class SpecialType < ApplicationRecord
+end
