@@ -6,12 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-SpecialType.create!(name: "Drink")
-SpecialType.create!(name: "Food")
 
-LocationType.create!(name: "Bar")
-LocationType.create!(name: "Restaurant")
-LocationType.create!(name: "Bar/Restaurant")
+
 
 User.create!(name: "Dan", email: "dan@email.com", password_digest: "password", location_id: 1, access: "manager")
 User.create!(name: "Samantha", email: "sam@email.com", password_digest: "password", location_id: 1, access: "standard")
@@ -118,3 +114,11 @@ Special.create!({name: "Chili Cheese Fries", price: 5, special_type_id: 2 , loca
 Special.create!({name: "Steak", price: 5, special_type_id: 2 , location_id: 2, day: "Sun", start_time: 0, end_time: 0})
 Special.create!({name: "Sushi Rolls", price: 5, special_type_id: 2 , location_id: 2, day: "Sun", start_time: 0, end_time: 0})
 Special.create!({name: "Chicken Sandwich", price: 5, special_type_id: 2 , location_id: 2, day: "Sun", start_time: 0, end_time: 0})
+
+SpecialType.create!(name: "Drink")
+SpecialType.create!(name: "Food")
+
+
+LocationType.create!(name: "Bar")
+LocationType.create!(name: "Restaurant")
+LocationType.create!(name: "Bar/Restaurant")

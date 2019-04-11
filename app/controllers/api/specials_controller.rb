@@ -22,7 +22,7 @@ class Api::SpecialsController < ApplicationController
   end
 
   def show
-    @special = special.find_by(id: params[:id])
+    @special = Special.find_by(id: params[:id])
 
     render "show.json.jbuilder"
   end
