@@ -6,7 +6,7 @@ class Api::SpecialsController < ApplicationController
   end
 
   def create
-    @special = special.new(
+    @special = Special.new(
       name: params[:name],
       price: params[:price],
       special_type_id: params[:special_type_id],
@@ -28,7 +28,7 @@ class Api::SpecialsController < ApplicationController
   end
 
   def update
-    @special = special.find_by(id: params[:id])
+    @special = Special.find_by(id: params[:id])
 
     @special.name = params[:name]
     @special.price = params[:price]
@@ -40,13 +40,13 @@ class Api::SpecialsController < ApplicationController
 
     @special.save
 
-    render action: "show"
+    render action: "show.json.jbuilder"
   end
 
   def destroy
-    @special = special.find_by(id: params[:id])
+    @special = Special.find_by(id: params[:id])
     @special.destroy
 
-    render "index.json.jbuilder"
+    render json: {message: 'User deleted successfully'}
   end
 end

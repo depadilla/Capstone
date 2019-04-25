@@ -9,9 +9,9 @@
 
 
 
-User.create!(name: "Dan", email: "dan@email.com", password_digest: "password", location_id: 1, access: "manager")
-User.create!(name: "Samantha", email: "sam@email.com", password_digest: "password", location_id: 1, access: "standard")
-User.create!(name: "This Guy", email: "guy@email.com", password_digest: "password", location_id: 1, access: "standard")
+# User.create!(name: "Dan", email: "dan@email.com", password_digest: "password", location_id: 1, access: "manager")
+# User.create!(name: "Samantha", email: "sam@email.com", password_digest: "password", location_id: 1, access: "standard")
+# User.create!(name: "This Guy", email: "guy@email.com", password_digest: "password", location_id: 1, access: "standard")
 
 Location.create!({name: "Municipal Bar", location_type_id: 1, description: "A chic warehouse-style space housing lots of booze, pub food & numerous TVs with late-night hours.", capacity: 50, cap_percent: 25, address: "216 W Ohio St, Chicago, IL 60654"})
 Location.create!({name: "Mercadito", location_type_id: 2, description: "Cocktails and upscale Mexican eats keep this popular hangout bustling with a hip, young crowd.", capacity: 100, cap_percent: 25, address: "216 W Ohio St, Chicago, IL 60654"})

@@ -10,12 +10,15 @@ class Api::UsersController < ApplicationController
       name: params[:name],
       email: params[:email],
       password: params[:password],
-      location_id: params[:location_id],
+      password_confirmation: params[:password_confirmation],
       )
     
-    @user.save
+    if @user.save
+      render json: {message: 'User created successfully'}, status: :created
+    else
+      render json: {errors: @user.errors.full_messages}, status: :bad_request
+    end
 
-    render "show.json.jbuilder"
   end
 
   def show
@@ -25,25 +28,25 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = user.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
 
-    @user.name = params[:name]
-    @user.price = params[:price]
-    @user.user_type_id = params[:user_type_id]
-    @user.location_id = params[:location_id]
-    @user.day = params[:day]
-    @user.start_time = params[:start_time]
-    @user.end_time = params[:end_time]
+    @user.name = params[:name] || @user.name
+    @user.email = params[:email] || @user.email
+    @user.password = params[:password] || @user.password
+    @user.password_confirmation = params[:password_confirmation] || @user.password_confirmation
+    @user.location_id = params[:location_id] || @user.location_id
 
-    @user.save
-
-    render action: "show"
+    if @user.save
+      render "show.json.jbuilder"
+    else
+      render json: {errors: @user.errors.full_messages}, status: :bad_request
+    end
   end
 
   def destroy
-    @user = user.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
     @user.destroy
 
-    render "index.json.jbuilder"
+    render json: {message: 'User deleted successfully'}
   end
 end
