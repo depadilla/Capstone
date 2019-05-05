@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post "/sessions" => "sessions#create"
 
     get "/locations" => "locations#index"
+    get "/weather" => "users#weather"
     post "/locations" => "locations#create"
     get "/locations/:id" => "locations#show"
     patch "/locations/:id" => "locations#update"
@@ -20,6 +21,9 @@ Rails.application.routes.draw do
 
     get "/users" => "users#index"
     post "/users" => "users#create"
+    patch "/users/checkin" => "users#checkin"
+    patch "/users/checkout" => "users#checkout"
+    patch "/users/logout" => "users#logout"
     get "/users/:id" => "users#show"
     patch "/users/:id" => "users#update"
     delete "/users/:id" => "users#destroy"

@@ -13,6 +13,7 @@ class Api::LocationsController < ApplicationController
       capacity: params[:capacity],
       cap_percent: params[:cap_percent],
       address: params[:address],
+      headcount: 0,
       )
     
     @location.save
@@ -36,6 +37,7 @@ class Api::LocationsController < ApplicationController
     @location.capacity = params[:capacity]
     @location.cap_percent = params[:cap_percent]
     @location.address = params[:address]
+    @location.headcount = params[:headcount]
 
     @location.save
 

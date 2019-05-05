@@ -4,4 +4,5 @@ json.array! @locations.each do |location|
   json.description location.description
   json.capacity location.capacity
   json.address location.address
+  json.headcount location.headcount
 end
